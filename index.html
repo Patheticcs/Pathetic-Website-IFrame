@@ -3,25 +3,190 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pathetic</title>
-    <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
+    <meta name="description" content="Pathetic Hub: Offering the best Roblox scripts, executors, proxies, and bypasses to enhance your gaming experience.">
+    <title>Destination</title>
+    <link rel="icon" href="https://iili.io/25Go0TF.png" type="image/x-icon">
+<style>
+#background-video {
+    background: linear-gradient(to bottom, white, white);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
-      iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-    </style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-size: 16px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.welcome {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.welcome a {
+    margin-top: 5px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6); /* Black shadow */
+    color: black;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease-out; /* Smoother hover transition */
+    backdrop-filter: blur(5px);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.welcome a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6); /* Black shadow */
+    text-shadow: 0 0 15px #000, 0 0 25px #000; /* Black text shadow */
+    color: black;
+}
+
+.square-button {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth and natural easing */
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Black shadow */
+}
+
+.square-button img {
+    width: 30px;
+    height: auto;
+    transition: transform 0.4s ease-out, filter 0.4s ease-out;
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4)); /* Black shadow */
+}
+
+a.square-button {
+    text-decoration: none;
+    display: inline-flex;
+}
+
+.square-button span {
+    position: absolute;
+    color: black;
+    font-size: 1rem;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transform: translateX(10px); /* Slide-in text from the right */
+    pointer-events: none;
+}
+
+.square-button:hover {
+    width: 200px; /* Larger expansion for better effect */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.8); /* Black shadow */
+}
+
+.square-button:hover img {
+    transform: translateX(-55px) scale(1.1); /* Adjusted translateX to -40px */
+    filter: drop-shadow(0 0 10px #000); /* Black glow effect on the icon */
+}
+
+
+.square-button:hover span {
+    opacity: 1; /* Make the text visible */
+    transform: translateX(0); /* Reset the text position */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
   </head>
   <body>
-    <iframe src="https://html.cafe/xbaade32f"></iframe>
+    <div id="background-video"></div>
+
+    <section id="welcome" class="welcome">
+      <a href="https://patheticcs.github.io/" target="_blank" id="github-link">GitHub</a>
+      <a href="https://pathetic.vercel.app/" target="_blank" id="vercel-link">Vercel</a>
+      <a href="https://discord.gg/invite/Eg2EWXwYcn" target="_blank" class="square-button">
+        <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6ac3c481f273141736_icon_clyde_black_RGB.png" alt="Icon">
+        <span>Discord</span>
+      </a>
+    </section>
+
+    <audio id="background-audio">
+      <source src="https://dl.sndup.net/dy9vk/intro.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      function playAudio() {
+        var audio = document.getElementById('background-audio');
+        audio.play();
+      }
+
+      document.getElementById('github-link').addEventListener('click', function() {
+        playAudio();
+      });
+
+      document.getElementById('vercel-link').addEventListener('click', function() {
+        playAudio();
+      });
+
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener('mousedown', function(e) {
+        if (e.target.tagName === 'A') {
+          e.preventDefault();
+        }
+      });
+
+      document.addEventListener('touchstart', function(e) {
+        if (e.target.tagName === 'A') {
+          e.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
