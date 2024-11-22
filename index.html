@@ -5,12 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destination</title>
     <link rel="icon" href="https://iili.io/27ddQyB.md.png" type="image/x-icon">
-<script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script> <!-- Corrected script tag -->
 </head>
 <body>
     <iframe src="https://html.cafe/x7732a56a" 
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
         allowfullscreen 
         title="Pathetic"></iframe>
+
+    <script>
+        // Function to disable right-click on the page
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Prevent press and hold behavior on button links (for both desktop and mobile)
+        document.addEventListener('mousedown', function(e) {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+                e.preventDefault(); // Prevent the default behavior (click or long press) on links and buttons
+            }
+        });
+
+        // Disable long press on button links (mobile/touch devices)
+        document.addEventListener('touchstart', function(e) {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+                e.preventDefault(); // Prevent long press behavior on links and buttons (mobile)
+            }
+        });
+
+        // Additional handling for links after DOM content is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            // Select all links
+            const links = document.querySelectorAll("a");
+
+            // Add event listeners to each link for context menu prevention
+            links.forEach(link => {
+                link.addEventListener("contextmenu", (event) => {
+                    event.preventDefault(); // Prevent context menu
+                });
+            });
+        });
+    </script>
 </body>
 </html>
