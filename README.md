@@ -1,1 +1,1 @@
-We are a dedicated team of script providers specializing in high-quality exploits for Roblox. Our mission is to deliver reliable and efficient tools that enhance the gaming experience for our users.
+We are a dedicated team focused on creating reliable and effective exploits for Roblox. Our aim is to provide users with tools that enhance their gaming experience, combining efficiency and quality in every solution we offer.
