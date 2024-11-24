@@ -65,9 +65,10 @@
       #glitch-cursor {
         position: absolute;
         pointer-events: none;
-        width: 20px;
-        height: 20px;
-        background-color: white;
+        width: 30px; /* Set appropriate size */
+        height: 30px; /* Set appropriate size */
+        background-image: url('https://iili.io/2YgPhJf.png'); /* Set the image URL */
+        background-size: cover;
         border-radius: 50%;
         animation: glitchCursor 0.1s infinite;
         display: none;
@@ -111,29 +112,29 @@
         z-index: 100;
       }
 
-      @keyframes intenseFlash {
+      @keyframes aggressiveFlash {
         0% {
           opacity: 0;
         }
 
         20% {
-          opacity: 0.8;
-        }
-
-        40% {
           opacity: 1;
         }
 
+        40% {
+          opacity: 0;
+        }
+
         60% {
-          opacity: 0.8;
+          opacity: 1;
         }
 
         80% {
-          opacity: 0.5;
+          opacity: 0;
         }
 
         100% {
-          opacity: 0;
+          opacity: 1;
         }
       }
 
@@ -229,32 +230,6 @@
         }
       }
 
-      @keyframes aggressiveFlash {
-        0% {
-          opacity: 0;
-        }
-
-        20% {
-          opacity: 1;
-        }
-
-        40% {
-          opacity: 0;
-        }
-
-        60% {
-          opacity: 1;
-        }
-
-        80% {
-          opacity: 0;
-        }
-
-        100% {
-          opacity: 1;
-        }
-      }
-
     </style>
   </head>
   <body>
@@ -293,9 +268,8 @@
         }
         isFullscreen = true;
 
-        document.body.style.pointerEvents = "none";
-        document.body.style.cursor = "none";
-        
+        document.body.style.cursor = "none"; 
+
         setTimeout(() => {
           demonFace.style.opacity = 1;
           demonFace.style.transform = "translate(-50%, -50%) scale(1)";
@@ -312,7 +286,6 @@
 
       enterButton.addEventListener('click', startJumpscare);
 
-      // Disable right-click and prevent ESC key from functioning
       document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
       });
