@@ -312,6 +312,11 @@
 
       enterButton.addEventListener('click', startJumpscare);
 
+      // Disable right-click and prevent ESC key from functioning
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
       document.addEventListener('keydown', function(e) {
         if (e.key === "Escape") {
           e.preventDefault();
