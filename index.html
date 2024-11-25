@@ -1,30 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pathetic</title>
     <link rel="icon" href="https://iili.io/27ddQyB.png" type="image/x-icon">
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-        }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      iframe {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        const iframe = document.createElement('iframe');
-        iframe.style.overflow = "hidden";
-        iframe.src = atob("aHR0cHM6Ly9wYXRoZXRpYy1odWIudmVyY2VsLmFwcC8=");
-        document.body.appendChild(iframe);
+      const iframe = document.createElement('iframe');
+      iframe.style.overflow = "hidden";
+      iframe.src = atob("aHR0cHM6Ly9wYXRoZXRpYy1odWIudmVyY2VsLmFwcC8=");
+      document.body.appendChild(iframe);
+
+      function replaceWithLink(url) {
+        window.location.href = url;
+      }
+      // Function to disable right-click on the page
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      // Prevent press and hold behavior on button links (for both desktop and mobile)
+      document.addEventListener('mousedown', function(e) {
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+          e.preventDefault(); // Prevent the default behavior (click or long press) on links and buttons
+        }
+      });
+      // Disable long press on button links (mobile/touch devices)
+      document.addEventListener('touchstart', function(e) {
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+          e.preventDefault(); // Prevent long press behavior on links and buttons (mobile)
+        }
+      });
+      // Additional handling for links after DOM content is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        // Select all links
+        const links = document.querySelectorAll("a");
+        // Add event listeners to each link for context menu prevention
+        links.forEach(link => {
+          link.addEventListener("contextmenu", (event) => {
+            event.preventDefault(); // Prevent context menu
+          });
+        });
+      });
+      // Function to enable smooth scroll on header button clicks
+      document.querySelectorAll('header nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1); // Get the target section's id
+          const targetElement = document.getElementById(targetId);
+          // Smooth scroll to the target element
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start' // Scroll to the top of the target element
+          });
+          // Optionally, add a delay before showing the header (if needed for effect)
+          setTimeout(() => {
+            document.querySelector('header').classList.add('visible');
+          }, 500); // Adjust timing as needed
+        });
+      });
+      document.addEventListener("keydown", function(event) {
+        if (event.ctrlKey) {
+          event.preventDefault();
+        }
+        if (event.keyCode == 123) {
+          event.preventDefault();
+        }
+      });
+      document.querySelector('.down-button').addEventListener('click', function() {
+        window.scrollBy({
+          top: window.innerHeight, // Scroll by the full height of the viewport
+          behavior: 'smooth' // Smooth scroll effect
+        });
+      });
+      // Enable scrolling when the "Get Started" button is clicked
+      function enableScrolling() {
+        document.body.style.overflowY = "scroll";
+      }
+      // Example: Attach the function to a button click event
+      document.querySelector('.button.back').addEventListener('click', enableScrolling);
     </script>
-</body>
+  </body>
 </html>
