@@ -170,6 +170,8 @@
       localStorage.removeItem("loggedInKey");
       window.location.reload();
     } else if (localStorage.getItem("loggedIn") === "true") {
+      // Change the title to "Pathetic" only when logged in
+      document.title = "Pathetic";
       loadIframe();
     } else {
       alertElement.textContent = "Your session has ended. Please enter your new key again.";
