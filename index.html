@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Key Check</title>
-  <style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Check</title>
+    <style>
       * {
         box-sizing: border-box;
         margin: 0;
@@ -178,17 +178,22 @@
           margin-left: 5px;
         }
       }
-  </style>
-</head>
-<body>
-  <div class="background-container">
-    <video autoplay="" muted loop="" playsinline preload="auto" id="background-video"><source src="https://r2.ammo.lol/a8f43fff-1f64-4f72-bac8-491af0f46638.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
-    <div class="container" id="login-container">
-      <h2>Key System</h2><input type="text" id="key" placeholder="Enter key"> <button onclick="checkKey()">Submit</button>
-      <div id="alert" class="alert"></div><button onclick="openDiscord()">Join Our Discord</button>
+    </style>
+  </head>
+  <body>
+    <div class="background-container">
+      <video autoplay="" muted loop="" playsinline preload="auto" id="background-video">
+        <source src="https://r2.ammo.lol/a8f43fff-1f64-4f72-bac8-491af0f46638.mp4" type="video/mp4"> Your browser does not support the video tag.
+      </video>
+      <div class="container" id="login-container">
+        <h2>Key System</h2>
+        <input type="text" id="key" placeholder="Enter key">
+        <button onclick="checkKey()">Submit</button>
+        <div id="alert" class="alert"></div>
+        <button onclick="openDiscord()">Join Our Discord</button>
+      </div>
     </div>
-  </div>
-  <script>
+    <script>
       const keys = ["frpcEbtlcjrT", "woodyBETATESTERKEY", "OWNER"];
       window.onload = function() {
         const savedKey = localStorage.getItem("loggedInKey");
@@ -230,6 +235,26 @@
       function openDiscord() {
         window.open("https://discord.gg/invite/Eg2EWXwYcn", "_blank");
       }
-  </script>
-</body>
+      document.querySelector('.container').addEventListener('mousemove', function(e) {
+        const container = e.currentTarget;
+        const {
+          offsetWidth: width,
+          offsetHeight: height
+        } = container;
+        const {
+          offsetX,
+          offsetY
+        } = e;
+        const x = (offsetX / width) * 2 - 1;
+        const y = (offsetY / height) * 2 - 1;
+        container.style.transform = `perspective(1000px) rotateX(${y * 5}deg) rotateY(${x * 5}deg)`;
+        container.style.transition = "transform 0.1s ease-out";
+      });
+      document.querySelector('.container').addEventListener('mouseleave', function(e) {
+        const container = e.currentTarget;
+        container.style.transition = "transform 0.5s ease-out";
+        container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    </script>
+  </body>
 </html>
