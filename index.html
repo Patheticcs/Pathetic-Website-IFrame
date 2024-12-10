@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Check</title>
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Check</title>
+  <style>
       * {
         box-sizing: border-box;
         margin: 0;
@@ -145,86 +145,113 @@
         border: none;
         z-index: 9999;
       }
-    </style>
-  </head>
-  <body>
-    <div class="background-container">
-      <video autoplay muted loop playsinline preload="auto" id="background-video">
-        <source src="https://r2.ammo.lol/a8f43fff-1f64-4f72-bac8-491af0f46638.mp4" type="video/mp4" /> Your browser does not support the video tag.
-      </video>
-      <div class="container" id="login-container">
-        <h2>Key System</h2>
-        <input type="text" id="key" placeholder="Enter key">
-        <button onclick="checkKey()">Submit</button>
-        <div id="alert" class="alert"></div>
-        <button onclick="openDiscord()">Join Our Discord</button>
-      </div>
+
+      @media only screen and (max-width: 768px) {
+        .container {
+          height: 300px;
+          width: 360px;
+          text-align: center;
+          margin: 0 auto;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        input[type="text"] {
+          font-size: 14px;
+          padding: 10px 20px;
+          margin-bottom: 15px;
+        }
+
+        button {
+          font-size: 14px;
+          margin-top: 10px;
+          text-align: center;
+          display: inline-block;
+          padding: 10px 20px;
+          width: auto;
+          margin-bottom: 0px;
+        }
+      }
+  </style>
+</head>
+<body>
+  <div class="background-container">
+    <video autoplay="" muted loop="" playsinline preload="auto" id="background-video"><source src="https://r2.ammo.lol/a8f43fff-1f64-4f72-bac8-491af0f46638.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
+    <div class="container" id="login-container">
+      <h2>Key System</h2><input type="text" id="key" placeholder="Enter key"> <button onclick="checkKey()">Submit</button>
+      <div id="alert" class="alert"></div><button onclick="openDiscord()">Join Our Discord</button>
     </div>
-<script>
-const keys = ["frpcEbtlcjrT", "woodyBETATESTERKEY"]; 
-  window.onload = function() {
-    const savedKey = localStorage.getItem("loggedInKey");
-    const alertElement = document.getElementById("alert");
-    if (savedKey && !keys.includes(savedKey)) {
-      localStorage.removeItem("loggedIn");
-      localStorage.removeItem("loggedInKey");
-      window.location.reload();
-    } else if (localStorage.getItem("loggedIn") === "true") {
-      // Change the title to "Pathetic" only when logged in
-      document.title = "Pathetic";
-      loadIframe();
-    } else {
-      alertElement.textContent = "Your session has ended. Please enter your new key again.";
-      alertElement.style.color = "white";
-    }
-  };
+  </div>
+  <script>
+      const keys = ["frpcEbtlcjrT", "woodyBETATESTERKEY"];
+      window.onload = function() {
+        const savedKey = localStorage.getItem("loggedInKey");
+        const alertElement = document.getElementById("alert");
+        if (savedKey && !keys.includes(savedKey)) {
+          localStorage.removeItem("loggedIn");
+          localStorage.removeItem("loggedInKey");
+          window.location.reload();
+        } else if (localStorage.getItem("loggedIn") === "true") {
+          document.title = "Pathetic";
+          loadIframe();
+        } else {
+          alertElement.textContent = "Your session has ended. Please enter your new key again.";
+          alertElement.style.color = "white";
+        }
+      };
 
-  function checkKey() {
-    const key = document.getElementById("key").value.trim();
-    const alertElement = document.getElementById("alert");
-    if (keys.includes(key)) {
-      document.title = "Pathetic";  // Change the title to "Pathetic"
-      localStorage.setItem("loggedIn", "true");
-      localStorage.setItem("loggedInKey", key);
-      loadIframe();
-    } else {
-      alertElement.textContent = "Incorrect key!";
-      alertElement.style.color = "white";
-    }
-  }
+      function checkKey() {
+        const key = document.getElementById("key").value.trim();
+        const alertElement = document.getElementById("alert");
+        if (keys.includes(key)) {
+          document.title = "Pathetic";
+          localStorage.setItem("loggedIn", "true");
+          localStorage.setItem("loggedInKey", key);
+          loadIframe();
+        } else {
+          alertElement.textContent = "Incorrect key!";
+          alertElement.style.color = "white";
+        }
+      }
 
-  function loadIframe() {
-    const iframe = document.createElement("iframe");
-    iframe.src = "https://pathetic-main.vercel.app/";
-    document.body.appendChild(iframe);
-    iframe.style.display = "block";
-  }
+      function loadIframe() {
+        const iframe = document.createElement("iframe");
+        iframe.src = "https://pathetic-main.vercel.app/";
+        document.body.appendChild(iframe);
+        iframe.style.display = "block";
+      }
 
-  function openDiscord() {
-    window.open("https://discord.gg/invite/Eg2EWXwYcn", "_blank");
-  }
-
-  document.querySelector('.container').addEventListener('mousemove', function(e) {
-    const container = e.currentTarget;
-    const {
-      offsetWidth: width,
-      offsetHeight: height
-    } = container;
-    const {
-      offsetX,
-      offsetY
-    } = e;
-    const x = (offsetX / width) * 2 - 1;
-    const y = (offsetY / height) * 2 - 1;
-    container.style.transform = `perspective(1000px) rotateX(${y * 5}deg) rotateY(${x * 5}deg)`;
-    container.style.transition = "transform 0.1s ease-out";
-  });
-
-  document.querySelector('.container').addEventListener('mouseleave', function(e) {
-    const container = e.currentTarget;
-    container.style.transition = "transform 0.5s ease-out";
-    container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-  });
-</script>
-  </body>
+      function openDiscord() {
+        window.open("https://discord.gg/invite/Eg2EWXwYcn", "_blank");
+      }
+      document.querySelector('.container').addEventListener('mousemove', function(e) {
+        const container = e.currentTarget;
+        const {
+          offsetWidth: width,
+          offsetHeight: height
+        } = container;
+        const {
+          offsetX,
+          offsetY
+        } = e;
+        const x = (offsetX / width) * 2 - 1;
+        const y = (offsetY / height) * 2 - 1;
+        container.style.transform = perspective(1000 px) rotateX($ {
+            y * 5
+          }
+          deg) rotateY($ {
+            x * 5
+          }
+          deg);
+        container.style.transition = "transform 0.1s ease-out";
+      });
+      document.querySelector('.container').addEventListener('mouseleave', function(e) {
+        const container = e.currentTarget;
+        container.style.transition = "transform 0.5s ease-out";
+        container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+  </script>
+</body>
 </html>
