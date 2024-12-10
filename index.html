@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Page Not Found</title>
-    <link rel="icon" type="image/x-icon" href="https://iili.io/27ddQyB.png">
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Check</title>
+  <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
         font-family: Arial, sans-serif;
+        background-color: #fff;
         background-size: cover;
+        background-position: center;
+        height: 100vh;
+        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         overflow: hidden;
-        margin: 0;
       }
 
       #background-video {
@@ -38,46 +45,12 @@
         width: 550px;
         position: relative;
         overflow: hidden;
-        color: white;
       }
 
       .container:hover {
         cursor: pointer;
         transform: scale(1.05);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      }
-
-      .container h1 {
-        font-size: 100px;
-        color: #fff;
-        margin-top: 40px;
-        text-shadow: 0 0 200px #fff, 0 0 60px #fff, 0 0 3px #fff;
-      }
-
-      .container p {
-        font-size: 18px;
-        text-align: center;
-        margin-bottom: 50px;
-        margin-top: -10px;
-        flex-grow: 1;
-      }
-
-      .container a {
-        font-size: 16px;
-        background-color: #fff;
-        color: #000;
-        text-decoration: none;
-        padding: 9px 16px;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        display: inline-block;
-        margin-top: 20px;
-        margin-bottom: 40px;
-      }
-
-      .container a:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.7);
       }
 
       .container::before {
@@ -96,83 +69,167 @@
         background: rgba(0, 0, 0, 0.3);
       }
 
-      @media (max-width: 600px) {
+      h2 {
+        font-size: 40px;
+        margin: 60px 0;
+        color: #fff;
+        text-shadow: 0 0px 20px rgba(0, 0, 0, 1);
+      }
+
+      input[type="text"] {
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 0px 20px rgba(255, 255, 255, 0.3);
+        color: #000;
+        margin-right: 10px;
+        margin-left: 10px;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        box-shadow: 0 0px 25px rgba(255, 255, 255, 0.9);
+      }
+
+      input[type="text"]:hover {
+        margin-right: 15px;
+        margin-left: 15px;
+        transform: scale(1.05);
+        box-shadow: 0 0px 25px rgba(255, 255, 255, 1);
+      }
+
+      button {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0px 20px rgba(255, 255, 255, 0.3);
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+        margin-top: 18px;
+        border-radius: 12px;
+        margin-right: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        margin-right: 15px;
+        margin-left: 15px;
+        transform: scale(1.05);
+        box-shadow: 0 0px 30px rgba(255, 255, 255, 0.7);
+      }
+
+      button:active {
+        background-color: rgba(0, 0, 0, 1);
+      }
+
+      .alert {
+        color: white;
+        font-size: 15px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      iframe {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        z-index: 9999;
+      }
+
+      @media only screen and (max-width: 768px) {
         .container {
-          width: 90%;
-          height: auto;
-          padding: 20px;
+          height: 380px;
+          width: 365px;
+          text-align: center;
+          margin: 0 auto;
         }
 
-        .container h1 {
-          font-size: 80px;
+        h2 {
+          font-size: 38px;
         }
 
-        .container p {
-          font-size: 16px;
-        }
-
-        .container a {
+        input[type="text"] {
           font-size: 14px;
+          padding: 10px 20px;
+          margin-right: 5px;
+          margin-left: 5px;
+          margin-bottom: 15px;
+        }
+
+        button {
+          font-size: 14px;
+          margin-top: 10px;
+          text-align: center;
+          display: inline-block;
+          padding: 10px 20px;
+          width: auto;
+          margin-bottom: 0px;
+          margin-right: 5px;
+          margin-left: 5px;
         }
       }
-    </style>
-  </head>
-  <body>
-    <div class="background-container">
-      <video autoplay muted loop playsinline preload="auto" id="background-video" aria-hidden="true">
-        <source src="https://r2.ammo.lol/a8f43fff-1f64-4f72-bac8-491af0f46638.mp4" type="video/mp4" /> Your browser does not support the video tag.
-      </video>
+  </style>
+</head>
+<body>
+  <div class="background-container">
+    <video autoplay="" muted loop="" playsinline preload="auto" id="background-video"><source src="https://r2.ammo.lol/a8f43fff-1f64-4f72-bac8-491af0f46638.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
+    <div class="container" id="login-container">
+      <h2>Key System</h2><input type="text" id="key" placeholder="Enter key"> <button onclick="checkKey()">Submit</button>
+      <div id="alert" class="alert"></div><button onclick="openDiscord()">Join Our Discord</button>
     </div>
-    <div class="container" aria-label="404 error container">
-      <h1>404</h1>
-      <p>Oops! The page you're looking for is not here.</p>
-      <a href="/" aria-label="Go back to the home page">Go Back to Home</a>
-    </div>
-    <script>
-      document.querySelector('.container').addEventListener('mousemove', function(e) {
-        const container = e.currentTarget;
-        const {
-          offsetWidth: width,
-          offsetHeight: height
-        } = container;
-        const {
-          offsetX,
-          offsetY
-        } = e;
-        const x = (offsetX / width) * 2 - 1;
-        const y = (offsetY / height) * 2 - 1;
-        container.style.transform = `perspective(1000px) rotateX(${y * 5}deg) rotateY(${x * 5}deg)`;
-        container.style.transition = "transform 0.1s ease-out";
-      });
-      document.querySelector('.container').addEventListener('mouseleave', function(e) {
-        const container = e.currentTarget;
-        container.style.transition = "transform 0.5s ease-out";
-        container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      });
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-      });
-      document.addEventListener('mousedown', function(e) {
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
-          e.preventDefault();
+  </div>
+  <script>
+      const keys = ["frpcEbtlcjrT", "woodyBETATESTERKEY", "OWNER", "LIFETIMEKEY-sWtAG1m9Eqlx"];
+      window.onload = function() {
+        const savedKey = localStorage.getItem("loggedInKey");
+        const alertElement = document.getElementById("alert");
+        if (savedKey && !keys.includes(savedKey)) {
+          localStorage.removeItem("loggedIn");
+          localStorage.removeItem("loggedInKey");
+          window.location.reload();
+        } else if (localStorage.getItem("loggedIn") === "true") {
+          document.title = "Pathetic";
+          loadIframe();
+        } else {
+          alertElement.textContent = "Key Expired. A new key is required to proceed.";
+          alertElement.style.color = "white";
         }
-      });
-      document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
-          e.preventDefault();
+      };
+
+      function checkKey() {
+        const key = document.getElementById("key").value.trim();
+        const alertElement = document.getElementById("alert");
+        if (keys.includes(key)) {
+          document.title = "Pathetic";
+          localStorage.setItem("loggedIn", "true");
+          localStorage.setItem("loggedInKey", key);
+          loadIframe();
+        } else {
+          alertElement.textContent = "Incorrect key!";
+          alertElement.style.color = "white";
         }
-      });
-      const links = document.querySelectorAll("a");
-      links.forEach(link => {
-        link.addEventListener("contextmenu", (event) => {
-          event.preventDefault();
-        });
-      });
-      document.addEventListener("keydown", function(event) {
-        if (event.ctrlKey || event.keyCode === 123) {
-          event.preventDefault();
-        }
-      });
-    </script>
-  </body>
+      }
+
+      function loadIframe() {
+        const iframe = document.createElement("iframe");
+        iframe.src = "https://pathetic-main.vercel.app/";
+        document.body.appendChild(iframe);
+        iframe.style.display = "block";
+      }
+
+      function openDiscord() {
+        window.open("https://discord.gg/invite/Eg2EWXwYcn", "_blank");
+      }
+  </script>
+</body>
 </html>
