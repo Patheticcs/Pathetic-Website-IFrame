@@ -255,6 +255,30 @@
         container.style.transition = "transform 0.5s ease-out";
         container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
       });
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('mousedown', function(e) {
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+          e.preventDefault();
+        }
+      });
+      document.addEventListener('touchstart', function(e) {
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+          e.preventDefault();
+        }
+      });
+      const links = document.querySelectorAll("a");
+      links.forEach(link => {
+        link.addEventListener("contextmenu", (event) => {
+          event.preventDefault();
+        });
+      });
+      document.addEventListener("keydown", function(event) {
+        if (event.ctrlKey || event.keyCode === 123) {
+          event.preventDefault();
+        }
+      });
     </script>
   </body>
 </html>
