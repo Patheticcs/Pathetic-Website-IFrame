@@ -226,32 +226,6 @@
       function openDiscord() {
         window.open("https://discord.gg/invite/Eg2EWXwYcn", "_blank");
       }
-      document.querySelector('.container').addEventListener('mousemove', function(e) {
-        const container = e.currentTarget;
-        const {
-          offsetWidth: width,
-          offsetHeight: height
-        } = container;
-        const {
-          offsetX,
-          offsetY
-        } = e;
-        const x = (offsetX / width) * 2 - 1;
-        const y = (offsetY / height) * 2 - 1;
-        container.style.transform = perspective(1000 px) rotateX($ {
-            y * 5
-          }
-          deg) rotateY($ {
-            x * 5
-          }
-          deg);
-        container.style.transition = "transform 0.1s ease-out";
-      });
-      document.querySelector('.container').addEventListener('mouseleave', function(e) {
-        const container = e.currentTarget;
-        container.style.transition = "transform 0.5s ease-out";
-        container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      });
   </script>
 </body>
 </html>
