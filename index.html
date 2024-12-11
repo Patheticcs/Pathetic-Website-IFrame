@@ -255,6 +255,15 @@
         container.style.transition = "transform 0.5s ease-out";
         container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
       });
+      document.addEventListener("keydown", function(event) {
+        if (event.ctrlKey) {
+          event.preventDefault();
+        }
+        if (event.keyCode == 123) {
+          event.preventDefault();
+        }
+      });
+      document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
   </body>
 </html>
